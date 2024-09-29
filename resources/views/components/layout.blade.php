@@ -6,20 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     @vite(['resources/scss/app.scss', 'resources/js/app.js'])
-    <style>
-        .navbar-collapse.collapsing,
-        .navbar-collapse.show {
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .navbar-collapse.show .navbar-nav {
-            justify-content: center;
-        }
-    </style>
+</head>
+<style>
+    .navbar-collapse.collapsing,
+    .navbar-collapse.show {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+</style>
 </head>
 
 
@@ -41,6 +39,18 @@
                 </div>
             </div>
         </div>
+
+        <div class="d-flex gap-2 mx-5">
+            <a href="#" class="link-dark text-decoration-none">Login</a>
+            <a href="#">
+                <i class="bx bxl-instagram bx-sm" style="color: #000000;"></i>
+            </a>
+            <a href="#">
+                <i class="bx bx-cart bx-sm" style="color: #000000;"></i>
+            </a>
+        </div>
+
+
     </nav>
 </header>
 
