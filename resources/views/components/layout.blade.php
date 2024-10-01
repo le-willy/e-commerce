@@ -17,40 +17,45 @@
         flex-direction: column;
         align-items: center;
     }
-</style>
-</head>
 
+    .cart-number {
+        margin-left: 1px;
+        font-size: 14px;
+    }
+</style>
+
+</head>
 
 <header>
     <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+        <div class="container-fluid d-flex justify-content-between">
+            <div>
 
-            <div class="collapse navbar-collapse nav-underline" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" href="#">Home</a>
-                    <a class="nav-link {{ request()->is('shop') ? 'active' : '' }}" href="#">Shop</a>
-                    <a class="nav-link {{ request()->is('lookbook') ? 'active' : '' }}" href="#">Lookbook</a>
-                    <a class="nav-link {{ request()->is('about') ? 'active' : '' }}" href="#">About</a>
-                    <a class="nav-link {{ request()->is('contact') ? 'active' : '' }}" href="#">Contact</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse nav-underline" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" href="#">Home</a>
+                        <a class="nav-link {{ request()->is('shop') ? 'active' : '' }}" href="#">Shop</a>
+                        <a class="nav-link {{ request()->is('lookbook') ? 'active' : '' }}" href="#">Lookbook</a>
+                        <a class="nav-link {{ request()->is('about') ? 'active' : '' }}" href="#">About</a>
+                        <a class="nav-link {{ request()->is('contact') ? 'active' : '' }}" href="#">Contact</a>
+                    </div>
                 </div>
             </div>
+
+            <div class="d-flex align-items-center gap-3">
+                <a href="#" class="link-dark text-decoration-none">Login</a>
+                <a href="#" class="link-dark text-decoration-none ms-3 d-flex align-items-center">
+                    <i class="bx bx-cart bx-sm" style="color: #000000;"></i>
+                    <p class="cart-number mb-0">1</p>
+                </a>
+            </div>
         </div>
-
-        <div class="d-flex gap-2 mx-5">
-            <a href="#" class="link-dark text-decoration-none">Login</a>
-            <a href="#">
-                <i class="bx bxl-instagram bx-sm" style="color: #000000;"></i>
-            </a>
-            <a href="#">
-                <i class="bx bx-cart bx-sm" style="color: #000000;"></i>
-            </a>
-        </div>
-
-
     </nav>
 </header>
 
