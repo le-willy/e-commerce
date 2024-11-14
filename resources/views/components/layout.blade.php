@@ -48,12 +48,12 @@
                 </div>
             </div>
 
-            <div class="d-flex align-items-center gap-3">
-                <a href="#" class="link-dark text-decoration-none">Login</a>
+            <div class="d-flex align-items-center gap-3 mx-3">
                 <a href="#" class="link-dark text-decoration-none ms-3 d-flex align-items-center">
                     <i class="bx bx-cart bx-sm" style="color: #000000;"></i>
                     <p class="cart-number mb-0">1</p>
                 </a>
+                <a href="#" class="link-dark text-decoration-none">Login</a>
             </div>
         </div>
     </nav>
