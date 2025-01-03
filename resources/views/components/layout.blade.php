@@ -53,7 +53,7 @@
                     <i class="bx bx-cart bx-sm" style="color: #000000;"></i>
                     <p class="cart-number mb-0">1</p>
                 </a>
-                <a href="#" class="link-dark text-decoration-none">Login</a>
+                <a href="/login" class="link-dark text-decoration-none">Login</a>
             </div>
         </div>
     </nav>
