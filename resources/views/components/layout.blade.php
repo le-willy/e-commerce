@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>E-Commerce</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     @vite(['resources/scss/app.scss', 'resources/js/app.js'])
 </head>
@@ -39,7 +39,7 @@
 
                 <div class="collapse navbar-collapse nav-underline" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" href="#">Home</a>
+                        <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" href="/">Home</a>
                         <a class="nav-link {{ request()->is('shop') ? 'active' : '' }}" href="#">Shop</a>
                         <a class="nav-link {{ request()->is('lookbook') ? 'active' : '' }}" href="#">Lookbook</a>
                         <a class="nav-link {{ request()->is('about') ? 'active' : '' }}" href="#">About</a>
@@ -53,7 +53,14 @@
                     <i class="bx bx-cart bx-sm" style="color: #000000;"></i>
                     <p class="cart-number mb-0">1</p>
                 </a>
-                <a href="/login" class="link-dark text-decoration-none">Login</a>
+                @auth
+                    <form action="{{ route('logout') }}" method="POST">
+                        <button class="btn btn-link link-dark text-decoration-none">Logout</button>
+                        @csrf
+                    </form>
+                @else
+                    <a href="{{ route('login') }}" class="link-dark text-decoration-none">Login</a>
+                @endauth
             </div>
         </div>
     </nav>

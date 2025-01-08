@@ -1,11 +1,9 @@
 <x-layout>
-
     <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-12 col-md-8 col-lg-6 col-xl-5">
                 <div class="card bg-secondary-subtle text-black" style="border-radius: 1rem;">
                     <div class="card-body p-5 text-center">
-
                         <div class="mb-md-5 mt-md-4 pb-5">
                             <ul class="nav nav-tabs nav-underline gap-2" id="myTab" role="tablist">
                                 <li class="nav-item" role="presentation">
@@ -22,57 +20,104 @@
                             </ul>
 
                             <div class="tab-content" id="myTabContent">
+                                <!-- Log In Form -->
                                 <div class="tab-pane fade show active" id="log-in-pane" role="tabpanel"
                                     aria-labelledby="login-tab">
                                     <p class="text-black-50 mt-3 mb-5">Please enter your login and password!</p>
 
-                                    <div class="form-outline form-black mb-2 text-start">
-                                        <label class="form-label" for="typeEmailX">Email</label>
-                                        <input type="email" id="typeEmailX" class="form-control form-control-lg" />
-                                    </div>
+                                    <form method="POST" action="{{ route('login') }}">
+                                        @csrf
+                                        <div class="form-group mb-2 text-start">
+                                            <label class="form-label" for="loginEmail">Email</label>
+                                            <input type="email" id="loginEmail" name="email"
+                                                value="{{ old('email') }}" class="form-control form-control-lg" />
+                                            @error('email')
+                                                <p class="mb-0 shadow-sm small alert alert-danger">
+                                                    {{ $message }}
+                                                </p>
+                                            @enderror
+                                        </div>
 
-                                    <div class="form-outline form-black mb-2 text-start">
-                                        <label class="form-label" for="typePasswordX">Password</label>
-                                        <input type="password" id="typePasswordX" spellcheck="false" autocorrect="off"
-                                            autocapitalize="off" class="form-control form-control-lg" />
-                                    </div>
+                                        <div class="form-group mb-2 text-start">
+                                            <label class="form-label" for="loginPassword">Password</label>
+                                            <input type="password" id="loginPassword" name="password"
+                                                class="form-control form-control-lg" />
+                                            @error('password')
+                                                <p class="mb-0 shadow-sm small alert alert-danger">
+                                                    {{ $message }}
+                                                </p>
+                                            @enderror
+                                        </div>
 
-                                    <p class="small mb-5 pb-lg-2"><a class="text-black-50" href="#!">Forgot
-                                            password?</a></p>
-                                    <a href="#" class="btn btn-outline-dark btn-lg px-5">Login</a>
+                                        <p class="small mb-5 pb-lg-2"><a class="text-black-50" href="#">Forgot
+                                                password?</a></p>
+
+                                        <button type="submit" class="btn btn-outline-dark btn-lg px-5">Login</button>
+                                    </form>
                                 </div>
 
+                                <!-- Sign Up Form -->
                                 <div class="tab-pane fade" id="sign-in-pane" role="tabpanel"
                                     aria-labelledby="singin-tab">
                                     <p class="text-black-50 mt-3 mb-5">Please enter your personal details!</p>
 
-                                    <div class="form-outline form-black mb-2 text-start">
-                                        <label class="form-label" for="typeEmailX">Email</label>
-                                        <input type="email" id="typeEmailX" class="form-control form-control-lg" />
-                                    </div>
+                                    <form method="POST" action="{{ route('register') }}">
+                                        @csrf
+                                        <div class="form-group mb-2 text-start">
+                                            <label class="form-label" for="name">Username</label>
+                                            <input type="text" id="name" name="name"
+                                                value="{{ old('name') }}" class="form-control form-control-lg" />
+                                            @error('name')
+                                                <p class="mb-0 shadow-sm small alert alert-danger">
+                                                    {{ $message }}
+                                                </p>
+                                            @enderror
+                                        </div>
 
-                                    <div class="form-outline form-black mb-2 text-start">
-                                        <label class="form-label" for="typePasswordX">Password</label>
-                                        <input type="password" id="typePasswordX" spellcheck="false" autocorrect="off"
-                                            autocapitalize="off" class="form-control form-control-lg" />
-                                    </div>
+                                        <div class="form-group mb-2 text-start">
+                                            <label class="form-label" for="registerEmail">Email</label>
+                                            <input type="email" id="registerEmail" name="email"
+                                                value="{{ old('email') }}" class="form-control form-control-lg" />
+                                            @error('email')
+                                                <p class="mb-0 shadow-sm small alert alert-danger">
+                                                    {{ $message }}
+                                                </p>
+                                            @enderror
+                                        </div>
 
-                                    <div class="form-outline form-black mb-5 text-start">
-                                        <label class="form-label" for="confirmPasswordX">Confirm Password</label>
-                                        <input type="password" id="comfirmPasswordX" spellcheck="false"
-                                            autocorrect="off" class="form-control form-control-lg" />
-                                    </div>
+                                        <div class="form-group mb-2 text-start">
+                                            <label class="form-label" for="registerPassword">Password</label>
+                                            <input type="password" id="registerPassword" name="password"
+                                                class="form-control form-control-lg" />
+                                            @error('password')
+                                                <p class="mb-0 shadow-sm small alert alert-danger">
+                                                    {{ $message }}
+                                                </p>
+                                            @enderror
+                                        </div>
 
-                                    <a href="#" class="btn btn-outline-dark btn-lg px-5">Sign In</a>
+                                        <div class="form-group mb-5 text-start">
+                                            <label class="form-label" for="registerConfirmPassword">Confirm
+                                                Password</label>
+                                            <input type="password" id="registerConfirmPassword"
+                                                name="password_confirmation" class="form-control form-control-lg" />
+                                            @error('password_confirmation')
+                                                <p class="mb-0 shadow-sm small alert alert-danger">
+                                                    {{ $message }}
+                                                </p>
+                                            @enderror
+                                        </div>
 
+                                        <button type="submit" class="btn btn-outline-dark btn-lg px-5">
+                                            SignUp
+                                        </button>
+                                    </form>
                                 </div>
-
-
-
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 </x-layout>
