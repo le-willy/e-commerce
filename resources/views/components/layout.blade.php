@@ -39,11 +39,15 @@
 
                 <div class="collapse navbar-collapse nav-underline" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" href="/">Home</a>
-                        <a class="nav-link {{ request()->is('shop') ? 'active' : '' }}" href="#">Shop</a>
-                        <a class="nav-link {{ request()->is('lookbook') ? 'active' : '' }}" href="#">Lookbook</a>
-                        <a class="nav-link {{ request()->is('about') ? 'active' : '' }}" href="#">About</a>
-                        <a class="nav-link {{ request()->is('contact') ? 'active' : '' }}" href="#">Contact</a>
+
+                        <x-nav-link class="nav-link {{ request()->is('/') ? 'active' : '' }}"
+                            href="/">Shop</x-nav-link>
+                        <x-nav-link class="nav-link {{ request()->is('lookbook') ? 'active' : '' }}"
+                            href="#">Lookbook</x-nav-link>
+                        <x-nav-link class="nav-link {{ request()->is('about') ? 'active' : '' }}"
+                            href="/about">About</x-nav-link>
+                        <x-nav-link class="nav-link {{ request()->is('contact') ? 'active' : '' }}"
+                            href="#">Contact</x-nav-link>
                     </div>
                 </div>
             </div>

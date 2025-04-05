@@ -34,6 +34,7 @@ class UserController extends Controller
         }
         return back()->withErrors([
             'email' => 'The provided credentials do not match our records.',
+            'password' => 'The provided credentials do not match our records.'
         ])->onlyInput('email');
     }
 
@@ -45,7 +46,8 @@ class UserController extends Controller
             'password' => 'required|confirmed|min:8'
         ]);
 
-        User::create($incomingFields);
+        $user = User::create($incomingFields);
+        Auth::login($user);
         return redirect('/');
     }
 }

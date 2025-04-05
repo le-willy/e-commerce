@@ -23,30 +23,24 @@
                                 <!-- Log In Form -->
                                 <div class="tab-pane fade show active" id="log-in-pane" role="tabpanel"
                                     aria-labelledby="login-tab">
-                                    <p class="text-black-50 mt-3 mb-5">Please enter your login and password!</p>
+                                    @error('email')
+                                        <p class="mb-0 mt-4 shadow-sm small alert alert-danger">
+                                            {{ $message }}
+                                        </p>
+                                    @enderror
 
                                     <form method="POST" action="{{ route('login') }}">
                                         @csrf
-                                        <div class="form-group mb-2 text-start">
+                                        <div class="form-group mb-2 mt-5 text-start">
                                             <label class="form-label" for="loginEmail">Email</label>
                                             <input type="email" id="loginEmail" name="email"
                                                 value="{{ old('email') }}" class="form-control form-control-lg" />
-                                            @error('email')
-                                                <p class="mb-0 shadow-sm small alert alert-danger">
-                                                    {{ $message }}
-                                                </p>
-                                            @enderror
                                         </div>
 
                                         <div class="form-group mb-2 text-start">
                                             <label class="form-label" for="loginPassword">Password</label>
                                             <input type="password" id="loginPassword" name="password"
                                                 class="form-control form-control-lg" />
-                                            @error('password')
-                                                <p class="mb-0 shadow-sm small alert alert-danger">
-                                                    {{ $message }}
-                                                </p>
-                                            @enderror
                                         </div>
 
                                         <p class="small mb-5 pb-lg-2"><a class="text-black-50" href="#">Forgot
